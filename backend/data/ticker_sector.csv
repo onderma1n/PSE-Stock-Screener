@@ -1,0 +1,275 @@
+Ticker,sector,sub_sector
+AB.PS,Financials,Banks
+ABA.PS,Financials,Banks
+ABG.PS,Industrials,Holding Firms
+ABS.PS,Consumer Discretionary,Media
+ABSP.PS,Industrials,Holding Firms
+AC.PS,Industrials,Holding Firms
+ACE.PS,Industrials,Holding Firms
+ACEN.PS,Utilities,Power & Energy
+ACR.PS,Real Estate,Property
+AEV.PS,Industrials,Holding Firms
+AGI.PS,Industrials,Holding Firms
+ALCO.PS,Consumer Staples,Food & Beverage
+ALHI.PS,Industrials,Holding Firms
+ALI.PS,Real Estate,Property
+ALLDY.PS,Consumer Discretionary,Retail
+ALLHC.PS,Real Estate,Property
+ALTER.PS,Utilities,Power & Energy
+ANI.PS,Industrials,Holding Firms
+ANS.PS,Consumer Staples,Food & Beverage
+AP.PS,Utilities,Power & Energy
+APC.PS,Materials,Chemicals
+APL.PS,Consumer Staples,Food & Beverage
+APO.PS,Consumer Discretionary,Services
+APVI.PS,Consumer Staples,Food & Beverage
+APX.PS,Consumer Discretionary,Services
+AR.PS,Real Estate,Property
+ARA.PS,Real Estate,Property
+AREIT.PS,Real Estate,REITs
+ASLAG.PS,Materials,Mining & Cement
+AT.PS,Industrials,Holding Firms
+ATI.PS,Industrials,Construction
+ATN.PS,Industrials,Diversified
+AUB.PS,Financials,Banks
+AXLM.PS,Consumer Discretionary,Services
+BALAI.PS,Real Estate,Property
+BC.PS,Industrials,Holding Firms
+BCOR.PS,Industrials,Holding Firms
+BDO.PS,Financials,Banks
+BEL.PS,Real Estate,Property
+BH.PS,Financials,Banks
+BHI.PS,Industrials,Construction
+BKR.PS,Materials,Mining
+BLOOM.PS,Industrials,Holding Firms
+BMM.PS,Materials,Mining
+BNCOM.PS,Industrials,Holding Firms
+BPI.PS,Financials,Banks
+BRN.PS,Consumer Staples,Food & Beverage
+BSC.PS,Financials,Financial Services
+C.PS,Consumer Discretionary,Casinos & Gaming
+CA.PS,Financials,Financial Services
+CAT.PS,Financials,Financial Services
+CBC.PS,Financials,Banks
+CDC.PS,Industrials,Holding Firms
+CEB.PS,Industrials,Transportation
+CEI.PS,Industrials,Holding Firms
+CEU.PS,Consumer Discretionary,Education
+CHP.PS,Materials,Chemicals
+CIC.PS,Industrials,Construction
+CLI.PS,Real Estate,Property
+CNPF.PS,Consumer Staples,Food & Beverage
+CNVRG.PS,Communication Services,Telecoms
+COAL.PS,Energy,Oil Gas & Coal
+COL.PS,Financials,Financial Services
+COSCO.PS,Industrials,Holding Firms
+CPG.PS,Utilities,Power & Energy
+CPM.PS,Materials,Cement
+CREC.PS,Real Estate,Property
+CREIT.PS,Real Estate,REITs
+CROWN.PS,Real Estate,Property
+CSB.PS,Financials,Banks
+CTS.PS,Consumer Discretionary,Services
+DD.PS,Real Estate,Property
+DDMPR.PS,Real Estate,REITs
+DFNN.PS,Information Technology,IT Services
+DHI.PS,Materials,Mining
+DITO.PS,Communication Services,Telecoms
+DIZ.PS,Real Estate,Property
+DMC.PS,Industrials,Holding Firms
+DMW.PS,Consumer Discretionary,Services
+DNL.PS,Consumer Staples,Alcohol & Tobacco
+DWC.PS,Utilities,Water Utilities
+ECP.PS,Industrials,Construction
+ECVC.PS,Energy,Oil Gas & Coal
+EEI.PS,Industrials,Construction
+EG.PS,Industrials,Holding Firms
+EGRN.PS,Utilities,Power & Energy
+ELI.PS,Industrials,Holding Firms
+EMI.PS,Consumer Discretionary,Casinos & Gaming
+ENEX.PS,Utilities,Power & Energy
+EURO.PS,Consumer Staples,Food & Beverage
+EW.PS,Industrials,Construction
+FAF.PS,Financials,Financial Services
+FB.PS,Consumer Staples,Alcohol & Tobacco
+FCG.PS,Consumer Staples,Food & Beverage
+FDC.PS,Industrials,Holding Firms
+FERRO.PS,Materials,Chemicals
+FEU.PS,Consumer Discretionary,Education
+FFI.PS,Consumer Staples,Food & Beverage
+FGEN.PS,Utilities,Power & Energy
+FILRT.PS,Real Estate,REITs
+FJP.PS,Real Estate,Property
+FLI.PS,Real Estate,Property
+FNI.PS,Utilities,Power & Energy
+FOOD.PS,Consumer Staples,Food & Beverage
+FPH.PS,Industrials,Holding Firms
+FPI.PS,Consumer Staples,Food & Beverage
+FRUIT.PS,Consumer Staples,Food & Beverage
+FYN.PS,Consumer Discretionary,Services
+GEO.PS,Industrials,Holding Firms
+GERI.PS,Real Estate,Property
+GLO.PS,Communication Services,Telecoms
+GMA7.PS,Consumer Discretionary,Media
+GMAP.PS,Real Estate,REITs
+GPH.PS,Industrials,Holding Firms
+GREEN.PS,Industrials,Construction
+GSMI.PS,Consumer Staples,Alcohol & Tobacco
+GTCAP.PS,Industrials,Holding Firms
+HI.PS,Industrials,Construction
+HOME.PS,Consumer Discretionary,Retail
+HOUSE.PS,Real Estate,Property
+HTI.PS,Industrials,Construction
+I.PS,Industrials,Holding Firms
+ICT.PS,Information Technology,IT Services
+IDC.PS,Industrials,Holding Firms
+IMI.PS,Information Technology,Electronics
+IMP.PS,Industrials,Holding Firms
+INFRA.PS,Industrials,Infrastructure
+ION.PS,Real Estate,Property
+IPM.PS,Industrials,Diversified
+IPO.PS,Industrials,Holding Firms
+IS.PS,Consumer Discretionary,Retail
+JAS.PS,Consumer Staples,Food & Beverage
+JFC.PS,Consumer Discretionary,Food & Beverage
+JGS.PS,Industrials,Holding Firms
+JOH.PS,Consumer Discretionary,Food & Beverage
+KEEPR.PS,Consumer Discretionary,Services
+KEP.PS,Real Estate,Property
+KPPI.PS,Utilities,Power & Energy
+LAND.PS,Real Estate,Property
+LBC.PS,Industrials,Transportation
+LC.PS,Materials,Mining
+LFM.PS,Consumer Staples,Food & Beverage
+LMG.PS,Industrials,Holding Firms
+LODE.PS,Materials,Mining
+LOTO.PS,Consumer Discretionary,Casinos & Gaming
+LPC.PS,Industrials,Holding Firms
+LPZ.PS,Industrials,Holding Firms
+LSC.PS,Materials,Mining
+LTG.PS,Industrials,Holding Firms
+MA.PS,Materials,Mining
+MAC.PS,Materials,Mining
+MACAY.PS,Consumer Discretionary,Casinos & Gaming
+MAH.PS,Industrials,Holding Firms
+MARC.PS,Materials,Mining
+MAXS.PS,Consumer Discretionary,Food & Beverage
+MB.PS,Financials,Banks
+MBC.PS,Consumer Discretionary,Media
+MBT.PS,Financials,Banks
+MED.PS,Health Care,Pharma
+MEDIC.PS,Health Care,Pharma
+MEG.PS,Real Estate,Property
+MER.PS,Utilities,Power & Energy
+MFIN.PS,Financials,Financial Services
+MG.PS,Industrials,Holding Firms
+MGH.PS,Industrials,Holding Firms
+MHC.PS,Industrials,Holding Firms
+MJC.PS,Consumer Discretionary,Food & Beverage
+MJIC.PS,Consumer Discretionary,Food & Beverage
+MM.PS,Financials,Financial Services
+MONDE.PS,Consumer Staples,Food & Beverage
+MRC.PS,Materials,Mining
+MREIT.PS,Real Estate,REITs
+MRSGI.PS,Industrials,Diversified
+MVC.PS,Materials,Mining
+MWC.PS,Utilities,Water Utilities
+MWIDE.PS,Industrials,Construction
+NI.PS,Industrials,Holding Firms
+NIKL.PS,Materials,Mining
+NOW.PS,Information Technology,IT Services
+NRCP.PS,Consumer Staples,Food & Beverage
+OGP.PS,Energy,Oil Gas & Coal
+OM.PS,Materials,Mining
+OPM.PS,Consumer Staples,Food & Beverage
+ORE.PS,Materials,Mining
+OV.PS,Materials,Mining
+PA.PS,Materials,Mining
+PAL.PS,Industrials,Transportation
+PAX.PS,Consumer Discretionary,Services
+PBB.PS,Financials,Banks
+PBC.PS,Financials,Banks
+PCOR.PS,Energy,Oil Gas & Coal
+PERC.PS,Real Estate,Property
+PGOLD.PS,Consumer Staples,Retail
+PHA.PS,Health Care,Pharma
+PHC.PS,Consumer Staples,Food & Beverage
+PHES.PS,Utilities,Power & Energy
+PHN.PS,Consumer Staples,Food & Beverage
+PHR.PS,Materials,Mining
+PIZZA.PS,Consumer Discretionary,Food & Beverage
+PLUS.PS,Consumer Discretionary,Retail
+PMPC.PS,Consumer Staples,Food & Beverage
+PNB.PS,Financials,Banks
+PNX.PS,Materials,Mining
+PPC.PS,Utilities,Power & Energy
+PRC.PS,Consumer Discretionary,Education
+PREIT.PS,Real Estate,REITs
+PRIM.PS,Industrials,Holding Firms
+PRMX.PS,Consumer Discretionary,Services
+PSB.PS,Financials,Banks
+PSE.PS,Financials,Financial Services
+PTC.PS,Industrials,Holding Firms
+PTT.PS,Energy,Oil Gas & Coal
+PX.PS,Materials,Mining
+PXP.PS,Energy,Oil Gas & Coal
+RCB.PS,Financials,Banks
+RCI.PS,Industrials,Holding Firms
+RCR.PS,Real Estate,REITs
+REDC.PS,Consumer Discretionary,Education
+REG.PS,Consumer Discretionary,Services
+RFM.PS,Consumer Staples,Food & Beverage
+RLC.PS,Real Estate,Property
+RLT.PS,Industrials,Holding Firms
+ROCK.PS,Consumer Discretionary,Services
+ROX.PS,Information Technology,IT Services
+RRHI.PS,Consumer Staples,Food & Beverage
+SBS.PS,Consumer Discretionary,Services
+SCC.PS,Materials,Mining & Cement
+SECB.PS,Financials,Banks
+SEVN.PS,Consumer Discretionary,Retail
+SFI.PS,Financials,Financial Services
+SGI.PS,Industrials,Holding Firms
+SGP.PS,Industrials,Holding Firms
+SHLPH.PS,Consumer Staples,Retail
+SHNG.PS,Consumer Discretionary,Retail
+SLI.PS,Real Estate,Property
+SM.PS,Industrials,Holding Firms
+SMC.PS,Industrials,Holding Firms
+SMPH.PS,Real Estate,Property
+SOC.PS,Consumer Discretionary,Services
+SPC.PS,Energy,Oil Gas & Coal
+SPM.PS,Materials,Mining
+SPNEC.PS,Utilities,Power & Energy
+SRDC.PS,Real Estate,Property
+SSI.PS,Industrials,Holding Firms
+STI.PS,Industrials,Holding Firms
+STN.PS,Industrials,Construction
+STR.PS,Industrials,Holding Firms
+SUN.PS,Consumer Discretionary,Retail
+T.PS,Materials,Mining
+TBGI.PS,Consumer Staples,Alcohol & Tobacco
+TECH.PS,Information Technology,IT Services
+TEL.PS,Communication Services,Telecoms
+TFC.PS,Financials,Financial Services
+TFHI.PS,Consumer Discretionary,Services
+TUGS.PS,Industrials,Transportation
+UBP.PS,Financials,Banks
+UNH.PS,Industrials,Holding Firms
+UPM.PS,Consumer Staples,Food & Beverage
+UPSON.PS,Information Technology,Electronics
+URC.PS,Consumer Staples,Food & Beverage
+V.PS,Industrials,Holding Firms
+VITA.PS,Consumer Staples,Food & Beverage
+VLC.PS,Industrials,Holding Firms
+VLL.PS,Real Estate,Property
+VMC.PS,Materials,Mining
+VREIT.PS,Real Estate,REITs
+VVT.PS,Industrials,Holding Firms
+WEB.PS,Consumer Discretionary,Casinos & Gaming
+WIN.PS,Consumer Discretionary,Casinos & Gaming
+WLCON.PS,Consumer Discretionary,Retail
+WPI.PS,Industrials,Diversified
+X.PS,Materials,Mining
+XG.PS,Industrials,Holding Firms
+ZHI.PS,Industrials,Diversified

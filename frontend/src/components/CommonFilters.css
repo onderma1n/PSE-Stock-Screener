@@ -1,0 +1,149 @@
+.common-filters {
+  background: #1e1e2e;
+  border: 1px solid #2d2d44;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.common-filters__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.common-filters__header:hover {
+  background: #252540;
+}
+
+.common-filters__header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-badge {
+  font-size: 11px;
+  background: #6366f1;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.arrow {
+  color: #888;
+  transition: transform 0.3s;
+}
+
+.arrow.expanded {
+  transform: rotate(180deg);
+}
+
+.common-filters__body {
+  padding: 0 20px 20px;
+}
+
+/* === Filter Section === */
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-section__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #c0c0d0;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-section__hint {
+  font-size: 12px;
+  color: #888;
+  margin: 0 0 12px 0;
+}
+
+/* === Sector Grid === */
+.sector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 8px;
+}
+
+.sector-option label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #252540;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 13px;
+  color: #d0d0e0;
+}
+
+.sector-option label:hover {
+  background: #2d2d50;
+}
+
+.sector-option input[type="checkbox"] {
+  accent-color: #6366f1;
+  width: 16px;
+  height: 16px;
+}
+
+.select-all label {
+  background: #1a1a35;
+  border: 1px dashed #444;
+  font-weight: 600;
+}
+
+/* === Checkbox Grid === */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 8px;
+}
+
+.checkbox-option label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #252540;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 13px;
+  color: #d0d0e0;
+}
+
+.checkbox-option label:hover {
+  background: #2d2d50;
+}
+
+.checkbox-option input[type="checkbox"] {
+  accent-color: #f59e0b;
+  width: 16px;
+  height: 16px;
+}
+
+/* === Tooltip === */
+.tooltip-icon {
+  font-size: 14px;
+  cursor: help;
+  opacity: 0.6;
+}
+
+.tooltip-icon:hover {
+  opacity: 1;
+}

@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark mode smooth transition */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Force dark background on html & body */
+html.dark {
+  background-color: #020617;
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #020617;
+  color: #e2e8f0;
+}
+
+/* Dark scrollbar */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Range input dark mode */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 4px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #6366f1;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.dark input[type="range"]::-webkit-slider-thumb {
+  border-color: #1e293b;
+}
+
+/* Recharts dark overrides */
+.dark .recharts-legend-item-text {
+  color: #94a3b8 !important;
+}
+.dark .recharts-default-tooltip {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+.dark .recharts-tooltip-label {
+  color: #e2e8f0 !important;
+}
+.dark .recharts-tooltip-item {
+  color: #cbd5e1 !important;
+}
+.dark .recharts-pie-label-text {
+  fill: #94a3b8 !important;
+}
