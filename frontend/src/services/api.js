@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
-export const fetchScreenedStocks = async (endpoint, payload, period) => {
-  try {
-    const response = await axios.post(`${API_BASE}${endpoint}?period=${period}`, payload);
-    return response.data;
-  } catch (error) {
-    console.error("Lỗi khi gọi API:", error);
-    throw error;
-  }
-};
+export async function fetchScreenedStocks(endpoint, filters, period = 'annual') {
+  const res = await fetch(`${API_BASE}${endpoint}?period=${period}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(filters),
+  });
+  if (!res.ok) throw new Error('API Error');
+  return res.json();
+}
