@@ -904,13 +904,13 @@ function StrategyMegaMenu({ activeStrategy, onSelect, loading, isStrategyView })
 
       {isOpen && (
         <div className="absolute top-full left-0 mt-1 z-50 flex">
-          <div className="bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700 w-72 overflow-hidden">
+          <div className="bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700 w-96 overflow-hidden">
             <div className="p-2 border-b border-slate-100 dark:border-slate-800">
               <p className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest px-2">Investment Strategy</p>
             </div>
             <div className="p-1.5">
               {Object.values(STRATEGIES).map(strat => {
-                const isActive = activeStrategy === strat.id;
+                const isActive = isStrategyView && activeStrategy === strat.id;
                 return (
                   <div key={strat.id}
                     onClick={() => handleSelect(strat.id)}
@@ -925,7 +925,7 @@ function StrategyMegaMenu({ activeStrategy, onSelect, loading, isStrategyView })
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className={`text-sm font-semibold ${isActive ? 'text-indigo-700 dark:text-indigo-300' : 'text-slate-700 dark:text-slate-200'}`}>{strat.name}</p>
-                      <p className="text-[10px] text-slate-400 dark:text-slate-500 truncate mt-0.5">{STRATEGY_DESCRIPTIONS[strat.id]?.substring(0, 50)}...</p>
+                      <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 leading-relaxed">{STRATEGY_DESCRIPTIONS[strat.id]}</p>
                     </div>
                     {isActive && <span className="text-[9px] font-bold text-indigo-500 bg-indigo-100 dark:bg-indigo-500/20 px-1.5 py-0.5 rounded-full shrink-0">✓</span>}
                   </div>
@@ -1497,6 +1497,7 @@ export default function App() {
                   <p className="text-xs text-slate-400 mt-0.5">
                     {loading ? 'Filtering...' : `${results.length} stocks matched`}
                   </p>
+                  <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-1 max-w-xl leading-relaxed">{STRATEGY_DESCRIPTIONS[activeStrategy]}</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
