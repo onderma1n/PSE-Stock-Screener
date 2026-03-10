@@ -150,7 +150,7 @@ export const STRATEGIES = {
   garp: {
     id: 'garp',
     name: 'GARP (Growth at Reasonable Price)',
-    description: 'Chiến lược kết hợp giữa tăng trưởng và giá trị, tìm kiếm doanh nghiệp có tăng trưởng lợi nhuận bền vững nhưng được giao dịch ở mức định giá hợp lý, tránh các trường hợp tăng trưởng quá nó. Nguồn gốc: Peter Lynch.',
+    description: 'Chiến lược kết hợp giữa tăng trưởng và giá trị, tìm kiếm doanh nghiệp có tăng trưởng lợi nhuận bền vững nhưng được giao dịch ở mức định giá hợp lý, tránh các trường hợp tăng trưởng quá nóng. Nguồn gốc: Peter Lynch.',
     endpoint: '/api/screen/garp',
     color: '#f43f5e',
     controls: [

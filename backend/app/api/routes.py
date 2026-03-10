@@ -11,6 +11,30 @@ from app.strategies.scoring_engine import get_scoring_explanation
 router = APIRouter()
 
 # ============================================
+# 0. ALL STOCKS (Trang chủ)
+# ============================================
+@router.get("/stocks/all")
+def get_all_stocks(period: str = Query("annual")):
+    """Trả về toàn bộ cổ phiếu với các chỉ số cơ bản cho trang chủ."""
+    df = get_df(period)
+    if df is None:
+        raise HTTPException(status_code=500, detail=f"Dữ liệu {period} chưa sẵn sàng.")
+    
+    display_cols = [
+        'Ticker', 'sector', 'sub_sector', 'price_close', 'market_cap',
+        'pe_ratio', 'pb_ratio', 'roe', 'eps_growth_yoy',
+        'dividend_yield', 'debt_equity_ratio', 'current_ratio',
+        'net_profit_margin', 'gross_profit_margin',
+        # Extra cols for client-side common filters
+        'total_equity', 'net_income', 'dividend_per_share',
+        'fcf', 'operating_cash_flow', 'capital_expenditures',
+    ]
+    valid_cols = [c for c in display_cols if c in df.columns]
+    result = df[valid_cols].replace({np.nan: None, np.inf: None, -np.inf: None})
+    records = result.to_dict(orient="records")
+    return {"total_found": len(records), "period": period, "data": records}
+
+# ============================================
 # CỘT CHUNG cho tất cả trường phái
 # ============================================
 BASE_COLS = ['Ticker', 'sector', 'sub_sector', 'price_close', 'market_cap']
