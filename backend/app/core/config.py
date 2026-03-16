@@ -3,7 +3,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = BASE_DIR / "data"
-ANNUAL_DATA_PATH = DATA_DIR / "MASTER_ANNUAL_CLEANED.csv"
+ANNUAL_DATA_PATH = DATA_DIR / "DATA_TEAM_REFINED_FINAL.csv"
 QUARTERLY_DATA_PATH = DATA_DIR / "MASTER_QUARTERLY.csv"
 
 # Kiểm tra file tồn tại ngay khi import
