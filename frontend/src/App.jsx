@@ -861,7 +861,7 @@ function StrategyParamsModal({ isOpen, onClose, activeStrategy, filters, onFilte
           <button onClick={onClose} className="px-4 py-2.5 text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 font-medium rounded-xl transition-colors">Cancel</button>
           <button onClick={() => { onApply(); onClose(); }} disabled={loading}
             className="px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-white font-semibold rounded-xl shadow-lg shadow-indigo-500/25 transition-all disabled:opacity-50 flex items-center gap-2">
-            {loading ? <><span className="animate-spin">&#9203;</span> Filtering...</> : <><LayoutGrid size={16} /> Apply & Filter</>}
+            {loading ? <><span className="animate-spin">&#9203;</span> Applying...</> : <><LayoutGrid size={16} /> Apply Parameters</>}
           </button>
         </div>
       </div>
@@ -1320,6 +1320,13 @@ export default function App() {
 
   const handleFilterChange = (id, value) => setFilters(prev => ({ ...prev, [id]: value }));
 
+  const handleCommonFiltersChange = useCallback((nextCommonFilters) => {
+    setCommonFilters(nextCommonFilters);
+    if (view === 'strategy') {
+      fetchResults(activeStrategy, filters, nextCommonFilters);
+    }
+  }, [view, activeStrategy, filters, fetchResults]);
+
   const handleResetFilters = () => {
     const defaultFilters = {};
     STRATEGIES[activeStrategy].controls.forEach(ctrl => { defaultFilters[ctrl.id] = ctrl.default; });
@@ -1355,15 +1362,16 @@ export default function App() {
     return list;
   }, [allStocks, commonFilters]);
 
-  const activeCommonFilterCount = [
-    (commonFilters.sectors?.length > 0),
-    commonFilters.only_psei,
-    commonFilters.exclude_high_debt,
-    commonFilters.exclude_negative_equity,
-    commonFilters.exclude_loss_making,
-    commonFilters.only_with_dividend,
-    commonFilters.only_positive_fcf,
-  ].filter(Boolean).length;
+  const activeCommonFilterCount =
+    (commonFilters.sectors?.length || 0) +
+    [
+      commonFilters.only_psei,
+      commonFilters.exclude_high_debt,
+      commonFilters.exclude_negative_equity,
+      commonFilters.exclude_loss_making,
+      commonFilters.only_with_dividend,
+      commonFilters.only_positive_fcf,
+    ].filter(Boolean).length;
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans transition-colors duration-300">
@@ -1546,7 +1554,7 @@ export default function App() {
       </main>
 
       {/* ===== MODALS ===== */}
-      <CommonFiltersModal isOpen={showCommonFilters} onClose={() => setShowCommonFilters(false)} commonFilters={commonFilters} onChange={setCommonFilters} />
+      <CommonFiltersModal isOpen={showCommonFilters} onClose={() => setShowCommonFilters(false)} commonFilters={commonFilters} onChange={handleCommonFiltersChange} />
 
       <StrategyParamsModal
         isOpen={showStrategyParams}
