@@ -105,22 +105,60 @@ const COLUMN_LABELS = {
   gross_profit_margin: 'Biên LN Gộp (%)',
   earnings_quality_ratio: 'OCF/NI',
   interest_coverage: 'ICR',
-  market_cap: 'Vốn hóa (₱)',
+  market_cap: 'Vốn hóa (₱B)',
   graham_multiplier: 'Graham (PE*PB)',
   eps_growth_total_5y: 'EPS Growth 5Y (%)',
   eps_growth_cagr_3y: 'EPS CAGR 3Y (%)',
   profit_streak_years: 'Năm có lãi liên tục',
   bvps: 'BVPS (₱)',
-  free_cash_flow: 'FCF',
-  dividend_per_share: 'DPS',
+  free_cash_flow: 'FCF (₱B)',
+  fcf: 'FCF (₱B)',
+  total_equity: 'Total Equity (₱B)',
+  net_income: 'Net Income (₱B)',
+  operating_cash_flow: 'Operating Cash Flow (₱B)',
+  capital_expenditures: 'Capital Expenditures (₱B)',
+  dividend_per_share: 'DPS (₱/cp)',
   score: 'Điểm',
 };
+
+function formatPesoBillions(value, fractionDigits = 2) {
+  const numeric = Number(value);
+  if (!isFinite(numeric)) return '—';
+  const inBillions = numeric / 1_000_000_000;
+  const absBillions = Math.abs(inBillions);
+  const digits = absBillions >= 100 ? 0 : fractionDigits;
+  return '₱' + inBillions.toLocaleString('en-PH', { minimumFractionDigits: 0, maximumFractionDigits: digits }) + 'B';
+}
+
+function formatPesoFull(value, fractionDigits = 2) {
+  const numeric = Number(value);
+  if (!isFinite(numeric)) return '—';
+  return '₱' + numeric.toLocaleString('en-PH', { minimumFractionDigits: 0, maximumFractionDigits: fractionDigits });
+}
+
+function formatDetailValue(key, val) {
+  if (val === null || val === undefined) return '—';
+  if (key === 'Ticker' || key === 'sector' || key === 'sub_sector') return val;
+  if (key === 'price_close' || key === 'bvps') return formatPesoFull(val, 3);
+  if (key === 'dividend_per_share') return formatPesoFull(val, 4);
+  if (key === 'market_cap') return formatPesoFull(Number(val) * 1_000_000_000, 0);
+  if (key === 'total_equity' || key === 'net_income' || key === 'operating_cash_flow' || key === 'capital_expenditures' || key === 'free_cash_flow' || key === 'fcf') {
+    return formatPesoFull(val, 0);
+  }
+  if (key === 'score') return Number(val).toFixed(1);
+  if (typeof val === 'number') return Number(val).toLocaleString('en-PH', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+  return val;
+}
 
 function formatValue(key, val) {
   if (val === null || val === undefined) return '—';
   if (key === 'Ticker' || key === 'sector' || key === 'sub_sector') return val;
   if (key === 'price_close') return '₱' + Number(val).toLocaleString('en-PH');
-  if (key === 'market_cap') return '₱' + Number(val).toLocaleString('en-PH', { maximumFractionDigits: 1 });
+  if (key === 'market_cap') return '₱' + Number(val).toLocaleString('en-PH', { maximumFractionDigits: 1 }) + 'B';
+  if (key === 'total_equity' || key === 'net_income' || key === 'operating_cash_flow' || key === 'capital_expenditures' || key === 'free_cash_flow' || key === 'fcf') {
+    return formatPesoBillions(val, 2);
+  }
+  if (key === 'dividend_per_share') return '₱' + Number(val).toLocaleString('en-PH', { maximumFractionDigits: 3 });
   if (key === 'score') return Number(val).toFixed(1);
   if (typeof val === 'number') return val.toFixed(2);
   return val;
@@ -407,12 +445,22 @@ function StockDetailModal({ stock, onClose, activeStrategy, isInWatchlist, onTog
         <div className="p-6">
           <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-3">Detailed Metrics</h3>
           <div className="grid grid-cols-3 sm:grid-cols-4 gap-2.5">
-            {metrics.map(([key, val]) => (
-              <div key={key} className="bg-slate-50 dark:bg-slate-800 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
-                <p className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wide leading-tight">{COLUMN_LABELS[key] || key}</p>
-                <p className={`text-sm font-bold mt-1 ${getValueColor(key, val)}`}>{formatValue(key, val)}</p>
-              </div>
-            ))}
+            {metrics.map(([key, val]) => {
+              const fullValue = formatDetailValue(key, val);
+              const compactValue = formatValue(key, val);
+              const tooltip = fullValue !== compactValue
+                ? `Full: ${fullValue}\nCompact: ${compactValue}`
+                : `Value: ${fullValue}`;
+              return (
+                <div key={key} title={tooltip} className="bg-slate-50 dark:bg-slate-800 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                  <p className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wide leading-tight">{COLUMN_LABELS[key] || key}</p>
+                  <p className={`text-sm font-bold mt-1 ${getValueColor(key, val)}`}>{fullValue}</p>
+                  {fullValue !== compactValue && (
+                    <p className="text-[10px] mt-1 text-slate-400 dark:text-slate-500">{compactValue}</p>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className="p-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
