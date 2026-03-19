@@ -150,7 +150,7 @@ const DEFAULT_COMMON_FILTERS = {
   sectors: [],
   only_psei: false,
   exclude_high_debt: false,
-  exclude_negative_equity: true,
+  exclude_negative_equity: false,
   exclude_loss_making: false,
   only_with_dividend: false,
   only_positive_fcf: false,
