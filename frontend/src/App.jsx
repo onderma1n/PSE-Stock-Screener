@@ -88,7 +88,7 @@ const COLUMN_LABELS = {
   Ticker: 'Mã CK',
   sector: 'Ngành',
   sub_sector: 'Phân ngành',
-  price_close: 'Giá',
+  price_close: 'Giá (₱)',
   pe_ratio: 'P/E',
   pb_ratio: 'P/B',
   current_ratio: 'Current Ratio',
@@ -105,12 +105,12 @@ const COLUMN_LABELS = {
   gross_profit_margin: 'Biên LN Gộp (%)',
   earnings_quality_ratio: 'OCF/NI',
   interest_coverage: 'ICR',
-  market_cap: 'Vốn hóa',
+  market_cap: 'Vốn hóa (₱)',
   graham_multiplier: 'Graham (PE*PB)',
   eps_growth_total_5y: 'EPS Growth 5Y (%)',
   eps_growth_cagr_3y: 'EPS CAGR 3Y (%)',
   profit_streak_years: 'Năm có lãi liên tục',
-  bvps: 'BVPS',
+  bvps: 'BVPS (₱)',
   free_cash_flow: 'FCF',
   dividend_per_share: 'DPS',
   score: 'Điểm',
@@ -119,8 +119,8 @@ const COLUMN_LABELS = {
 function formatValue(key, val) {
   if (val === null || val === undefined) return '—';
   if (key === 'Ticker' || key === 'sector' || key === 'sub_sector') return val;
-  if (key === 'price_close') return Number(val).toLocaleString('en-PH');
-  if (key === 'market_cap') return Number(val).toLocaleString('en-PH', { maximumFractionDigits: 1 });
+  if (key === 'price_close') return '₱' + Number(val).toLocaleString('en-PH');
+  if (key === 'market_cap') return '₱' + Number(val).toLocaleString('en-PH', { maximumFractionDigits: 1 });
   if (key === 'score') return Number(val).toFixed(1);
   if (typeof val === 'number') return val.toFixed(2);
   return val;
@@ -275,7 +275,7 @@ function WatchlistPanel({ watchlist, results, onClear, onToggle, onStockClick })
                       <div key={ticker} className="flex items-center justify-between px-4 py-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                         <div className="flex-1 cursor-pointer" onClick={() => { if (stock) { onStockClick(stock); setIsOpen(false); } }}>
                           <p className="text-sm font-bold text-indigo-600 dark:text-indigo-400">{ticker}</p>
-                          {stock ? <p className="text-[10px] text-slate-400 dark:text-slate-500">{Number(stock.price_close || 0).toLocaleString()} | {stock.sector || '—'}</p>
+                          {stock ? <p className="text-[10px] text-slate-400 dark:text-slate-500">₱{Number(stock.price_close || 0).toLocaleString('en-PH')} | {stock.sector || '—'}</p>
                             : <p className="text-[10px] text-slate-300 dark:text-slate-600 italic">Not in current results</p>}
                         </div>
                         <button onClick={() => onToggle(ticker)} className="p-1 text-slate-300 dark:text-slate-600 hover:text-red-500 dark:hover:text-red-400 transition-colors" title="Remove"><X size={14} /></button>
@@ -375,7 +375,7 @@ function StockDetailModal({ stock, onClose, activeStrategy, isInWatchlist, onTog
               <p className="text-sm text-slate-300 mt-1">{stock.sector || 'N/A'} — {stock.sub_sector || 'N/A'}</p>
             </div>
             <div className="text-right">
-              <p className="text-3xl font-bold">{Number(stock.price_close || 0).toLocaleString()}</p>
+              <p className="text-3xl font-bold">₱{Number(stock.price_close || 0).toLocaleString('en-PH')}</p>
               {activeStrategy && (
                 <div className={`inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-full border text-sm font-bold ${scoreBg} ${scoreColor}`}>
                   <Activity size={14} /> Score: {avgScore}/100
@@ -991,9 +991,9 @@ function SectorPieChart({ results }) {
 function PriceDistributionChart({ results }) {
   const chart = useChartTheme();
   const ranges = [
-    { name: '< 1', min: 0, max: 1, color: '#6366f1' }, { name: '1-5', min: 1, max: 5, color: '#22c55e' },
-    { name: '5-20', min: 5, max: 20, color: '#f59e0b' }, { name: '20-100', min: 20, max: 100, color: '#ec4899' },
-    { name: '100-500', min: 100, max: 500, color: '#8b5cf6' }, { name: '> 500', min: 500, max: 999999999, color: '#14b8a6' },
+    { name: '< ₱1', min: 0, max: 1, color: '#6366f1' }, { name: '₱1-₱5', min: 1, max: 5, color: '#22c55e' },
+    { name: '₱5-₱20', min: 5, max: 20, color: '#f59e0b' }, { name: '₱20-₱100', min: 20, max: 100, color: '#ec4899' },
+    { name: '₱100-₱500', min: 100, max: 500, color: '#8b5cf6' }, { name: '> ₱500', min: 500, max: 999999999, color: '#14b8a6' },
   ];
   const data = ranges.map(r => ({ name: r.name, value: results.filter(s => s.price_close >= r.min && s.price_close < r.max).length, color: r.color })).filter(d => d.value > 0);
   return (
@@ -1034,10 +1034,10 @@ function ValueMarginOfSafetyBar({ results }) {
   const data = useMemo(() => results.slice(0, 15).map(r => ({ Ticker: r.Ticker, price: r.price_close || 0, bvps: r.bvps || 0 })), [results]);
   return (
     <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
-      <h3 className="text-base font-bold text-slate-800 dark:text-slate-100 mb-1 flex items-center gap-2"><ShieldCheck className="text-emerald-500" size={20} /> Margin of Safety (Price vs BVPS)</h3>
+      <h3 className="text-base font-bold text-slate-800 dark:text-slate-100 mb-1 flex items-center gap-2"><ShieldCheck className="text-emerald-500" size={20} /> Margin of Safety (Price ₱ vs BVPS ₱)</h3>
       <div className="h-72 w-full">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data}><CartesianGrid strokeDasharray="3 3" stroke={chart.gridColor} vertical={false} /><XAxis dataKey="Ticker" tick={{ fill: chart.tickColor, fontSize: 10 }} /><YAxis tick={{ fill: chart.tickColor, fontSize: 11 }} /><Tooltip contentStyle={chart.tooltipStyle} /><Legend wrapperStyle={{ fontSize: '12px' }} /><Bar dataKey="price" name="Price" fill="#ef4444" radius={[4, 4, 0, 0]} /><Bar dataKey="bvps" name="BVPS" fill="#22c55e" radius={[4, 4, 0, 0]} /></BarChart>
+          <BarChart data={data}><CartesianGrid strokeDasharray="3 3" stroke={chart.gridColor} vertical={false} /><XAxis dataKey="Ticker" tick={{ fill: chart.tickColor, fontSize: 10 }} /><YAxis tick={{ fill: chart.tickColor, fontSize: 11 }} /><Tooltip contentStyle={chart.tooltipStyle} /><Legend wrapperStyle={{ fontSize: '12px' }} /><Bar dataKey="price" name="Price (₱)" fill="#ef4444" radius={[4, 4, 0, 0]} /><Bar dataKey="bvps" name="BVPS (₱)" fill="#22c55e" radius={[4, 4, 0, 0]} /></BarChart>
         </ResponsiveContainer>
       </div>
     </div>
